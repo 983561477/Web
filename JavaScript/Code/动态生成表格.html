@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        table {
+            width: 500px;
+            margin: 100px auto;
+            /* 合并边框 */
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+
+        th,
+        td  {
+            border: 1px solid #333;
+            
+        }
+
+        thead tr {
+            /* width: 100px; */
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- cellspacing 单元格之间的空间 -->
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>张三</td>
+                <td>JavaScript</td>
+                <td>100</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        // 学生的数据
+        var datas = [
+            {
+                name: '张三',
+                subject: 'JavaScript',
+                score: 100,
+            },
+            {
+                name: '李四',
+                subject: 'JavaScript',
+                score: 98,
+            },
+            {
+                name: '王二麻',
+                subject: 'JavaScript',
+                score: 80,
+            },
+            {
+                name: '赵六',
+                subject: 'JavaScript',
+                score: 60,
+            }
+        ]
+    
+        // 循环创建行 tr
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < datas.length; i++) {
+            // 先写结构 再写内容
+            
+            // 创建tr节点
+            var tr = document.createElement('tr')
+            // 插入tr节点
+            tbody.appendChild(tr);
+            
+            // 循环创建td节点
+            for (var k in datas[i]) {
+                // 创建td
+                var td = document.createElement('td')
+                // 插入到tr
+                tr.appendChild(td);
+                // console.log(datas[i][k]);
+                td.innerHTML = datas[i][k]
+            }
+            // 创建td删除标签
+            var td = document.createElement('td');
+            tr.appendChild(td);
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            // console.log(td.children[0]);
+            // 删除事件
+            td.children[0].onclick = function() {
+                // 删除当前tr节点
+                // console.log(this.parentNode.parentNode);
+                // this
+                tbody.removeChild(this.parentNode.parentNode);
+                console.log('删除')
+            }
+        }
+    </script>
+</body>
+
+</html>
