@@ -62,17 +62,42 @@ giet <verb> -h		// git config -h		终端打开
 ### 检查文件状态
 
 ```javascript
-// 检查文件状态命令			未跟踪: Untracked files
+// 检查文件状态命令			
 git status
+  1、未跟踪: Untracked files
+  2、已跟踪-已修改-未暂存: Changes not staged for commit
+  3、已跟踪-已修改-已暂存: Changes to be committed
 
-// 精简方式显示文件状态		未跟踪: ??
+// 精简方式显示文件状态
 git status -s		// git status --short
+  1、未跟踪: ??
+  2、已跟踪-已修改-未暂存: M
+  3、已跟踪-已暂存: A
+
 ```
 
-### 跟踪文件
+### 跟踪 / 暂存文件
 
 ```javascript
-// 跟踪文件命令
+// 跟踪/暂存文件命令
 git add 文件名
+git add .			// 跟踪/暂存所有文件
+  1、开始跟踪新文件
+  2、把已跟踪的且已修改的文件放到暂存区
+  3、把有冲突的文件标记为已解决的状态
+```
+
+### 提交更新
+
+```javascript
+// 提交暂存区文件到Git仓库命令
+git commit -m "描述"
+```
+
+### 撤销对文件的修改
+
+```javascript
+// 把工作区中修改的文件还原成 Git 仓库中所保存的版本
+git checkout -- 文件名
 ```
 

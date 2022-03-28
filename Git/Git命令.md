@@ -3,7 +3,7 @@
 ```
 # 1、官网安装
 # 2、打开 Git Bash 输入
-  git config --global user.name "名称
+  git config --global user.name "名称"
   git config --global user.email "邮箱"
 ```
 
@@ -39,7 +39,7 @@ ssh-keygen -t rsa -C "邮箱"、
 # 2、添加远程库
 git remote add origin git@github.com:账户名/仓库名.git
 例如:
-git remote add origin git@github.com:983561477/Web_Notes.git
+git remote add origin git@github.com:983561477/Web.git
 ```
 
 ### 推送内容至远程仓库
