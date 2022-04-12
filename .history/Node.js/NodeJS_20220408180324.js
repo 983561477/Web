@@ -52,56 +52,18 @@ const app = express()
 //   res.send('ok')
 // })
 
-// const mysql = require('mysql')
-// const db = mysql.createPool({
-//   host: '127.0.0.1',				// 数据库的 IP 地址
-//   user: 'root',				// 登录数据库的账号
-//   password: '174388',		// 登录数据库的密码
-//   database: 'movie',		// 指定要操作那个数据库
-// })
+const mysql = require('mysql')
+const db = mysql.createPool({
+  host: '127.0.0.1',				// 数据库的 IP 地址
+  user: 'root',				// 登录数据库的账号
+  password: '174388',		// 登录数据库的密码
+  database: 'movie',		// 指定要操作那个数据库
+})
 
-// 查询数据
-// db.query('SELECT * from user', (err, results) => {
-//   if(err) return console.log(err.message)
-//   console.log(results)
-// }) 
-
-// 插入数据
-// const  user = { name: '李四', age: 19}	// 需要插入的对象
-// const sqlStr = 'insert into user (name, age) values (?, ?)'		// ? 占位符
-// db.query(sqlStr, [user.name, user.age], (err, results) => {
-//   if(err) return console.log(err.message)		// 失败
-//   if(results.affectedRows === 1) console.log('插入成功')
-// })
-
-// const user = { name: '王五', age: 19}	// 需要插入的对象
-// const sqlStr = 'insert into user set ?'		// ? 占位符
-// db.query(sqlStr, user, (err, results) => {
-//   if(err) return console.log(err.message)		// 失败
-//   if(results.affectedRows === 1) console.log('插入成功')
-// })
-
-//更新数据
-// const user = { id: 5, name: '赵六', age: 20}
-// const sqlStr = 'update user set name = ?, age = ? where id = ?'
-// db.query(sqlStr, [user.name, user.age, user.id], (err, results) => {
-//   if(err) return console.log(err.message)		// 失败
-//   if(results.affectedRows === 1) console.log('更新成功')
-// })
-
-// const user = { id: 6, name: '赵六', age: 20}
-// const sqlStr = 'update user set ? where id = ?'
-// db.query(sqlStr, [user, user.id], (err, results) => {
-//   if(err) return console.log(err.message)		// 失败
-//   if(results.affectedRows === 1) console.log('更新成功')
-// })
-
-const session = require('express-session')
-app.use(session({
-  secret: 'keyboard cat',		// secret 属性的值可以为任意字符串
-  resave: false,					// 固定写法
-  saveUninitialized: true		//固定写法
-}))
+db.query('SELECT * from user', (err, results) => {
+  if(err) return console.log(err.message)
+  console.log(results)
+}) 
 
 // 3、启动服务器
 app.listen(80, () => {
