@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const arr = ['张三', '李四', '王五', '赵六']
+
+
+
+        // 一旦开始，无法终止，循环结束为止
+        // arr.forEach((item, index) => {
+        //     if (item === '王五') {
+        //         console.log(index);
+        //     }
+        // })
+
+        arr.some((item, index) => {
+            if (item == '王五') {
+                console.log(index);
+                // 固定语法，终止 some 循环
+                return true
+            }
+        })
+    </script>
+</body>
+
+</html>

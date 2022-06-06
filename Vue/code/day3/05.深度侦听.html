@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="info.username">
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                info: {
+                    username: ''
+                }
+            },
+            watch: {
+                // 对象格式
+                // info: {
+                //     // 侦听器的处理函数
+                //     handler(newVal, oldVal) {
+                //         console.log('侦听到了 username 值发生了变化');
+                //     },
+                //     // 自动触发，false默认不触发
+                //     immediate: true,
+                //     // 深度侦听，false默认不触发
+                //     deep: true
+                // }
+
+                // 对象的属性，单引号包裹
+                'info.username'(newVal) {
+                    console.log(newVal);
+                }
+            }
+        }) 
+    </script>
+</body>
+</html>

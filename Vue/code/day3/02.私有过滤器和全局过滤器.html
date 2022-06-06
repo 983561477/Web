@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>message 的值是: {{ message | capi }}</p>
+    </div>
+
+    <div id="app2">
+        <p>message 的值是: {{ message | capi }}</p>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        // 全局过滤器
+        Vue.filter('capi', str => {
+            const first = str.charAt(0).toUpperCase()
+            const other = str.slice(1)
+            return first + other
+        })
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello vue.js'
+            },
+            // filters 过滤器，私有过滤器
+            filters: {
+                // 过滤器形参中的 val ，永远都是 ‘管道符’前面的那个值
+                capi(val) {
+                    // charAt() 把字符串中索引对应的值取出
+                    // console.log(val.charAt(0));
+                    const first = val.charAt(0).toUpperCase()
+                    // slice() 从指定索引截取字符串
+                    const other = val.slice(1)
+                    // 过滤器中，一定要有返回值
+                    return first + other
+                }
+            }
+        })
+    
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                message: 'hi vue.js'
+            },
+        })
+    
+    
+    </script>
+</body>
+</html>

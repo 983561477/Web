@@ -171,6 +171,9 @@ exports === module.exports		// true
 ### npm
 
 ```javascript
+// 升级 npm
+npm install -g npm
+
 // 包: 第三方模块
 moment	// 时间格式化
 
@@ -202,7 +205,8 @@ npm i webpack -D
 1、查看当前下包镜像源
 npm config get registry
 2、切换为淘宝镜像源
-npm config set registry=https://registry.npmmirror.com/
+// npm config set registry=https://registry.npmmirror.com/
+npm config set registry https://registry.npm.taobao.org
 
 // nrm
 1、将 nrm 安装为全局可用的工具

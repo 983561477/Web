@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="username">
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: ''
+            },
+        watch: {
+            // 本质是函数
+            // 侦听哪个数据，就将其作为方法名即可
+            // newVal 新值
+            // oldVal 旧值
+            username(newVal, oldVal) {
+                console.log('侦听到了 username 值发生了变化', newVal, oldVal);
+            }
+        }
+        }) 
+    </script>
+</body>
+</html>
